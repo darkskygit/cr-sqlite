@@ -1,0 +1,33 @@
+[package]
+name = "crsqlite"
+version = "0.1.0"
+edition = "2021"
+authors = ["Matt Wonlaw", "DarkSky <darksky2048@gmail.com>"]
+description = "SQLite with CRDT support"
+
+[features]
+test = ["crsql_core/test"]
+libsql = ["crsql_core/libsql"]
+loadable_extension = [
+    "sqlite_nostd/loadable_extension",
+    "crsql_fractindex_core/loadable_extension",
+    "crsql_core/loadable_extension",
+]
+static = [
+    "sqlite_nostd/static",
+    "crsql_fractindex_core/static",
+    "crsql_core/static",
+]
+omit_load_extension = [
+    "sqlite_nostd/omit_load_extension",
+    "crsql_fractindex_core/omit_load_extension",
+    "crsql_core/omit_load_extension",
+]
+
+[dependencies]
+crsql_fractindex_core = { workspace = true }
+crsql_core = { workspace = true }
+sqlite_nostd = { workspace = true }
+
+[build-dependencies]
+cc = "1.2.17"

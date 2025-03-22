@@ -1,0 +1,25 @@
+[workspace]
+resolver = "2"
+members = [
+  "packages/core",
+  "packages/crsqlite",
+  "packages/fractindex-core",
+  "packages/integration_check",
+]
+
+[workspace.dependencies]
+crsql_core = { path = "./packages/core" }
+crsql_fractindex_core = { path = "./packages/fractindex-core" }
+crsqlite = { path = "./packages/crsqlite" }
+sqlite_nostd = { git = "https://github.com/vlcn-io/sqlite-rs-embedded" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+lto = true
+panic = "abort"
+# opt-level = "z"
+codegen-units = 1
+incremental = false
+strip = "symbols"

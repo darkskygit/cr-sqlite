@@ -1,0 +1,33 @@
+[package]
+name = "crsql_integration_check"
+version = "0.0.1"
+edition = "2021"
+authors = ["Matt Wonlaw"]
+description = "rs integration check for crsqlite"
+keywords = ["sqlite"]
+license = "Apache-2.0"
+
+[lib]
+name = "crsql_integration_check"
+crate-type = ["staticlib"]
+
+[dependencies]
+sqlite_nostd = { workspace = true, features = [
+    "static",
+    "omit_load_extension",
+] }
+crsqlite = { workspace = true, features = [
+    "static",
+    "omit_load_extension",
+    "test",
+] }
+cargo-valgrind = "2.2.1"
+libc-print = "0.1.23"
+
+[build-dependencies]
+cc = "1.2.17"
+
+[features]
+libsql = ["crsqlite/libsql"]
+static = []
+omit_load_extension = []

@@ -1,0 +1,25 @@
+[package]
+name = "crsql_core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Matt Wonlaw"]
+keywords = ["sqlite", "cr-sqlite", "crdt"]
+license = "Apache 2"
+
+[lib]
+name = "crsql_core"
+crate-type = ["rlib"]
+
+[dependencies]
+sqlite_nostd = { workspace = true}
+# fixme: tokio-rs/bytes#732 breaks pack_column's behavior
+bytes = { version = "=1.7.1", default-features = false }
+num-traits = { version = "0.2.19", default-features = false }
+num-derive = "0.4.2"
+
+[features]
+test = []
+libsql = []
+loadable_extension = ["sqlite_nostd/loadable_extension"]
+static = ["sqlite_nostd/static"]
+omit_load_extension = ["sqlite_nostd/omit_load_extension"]
