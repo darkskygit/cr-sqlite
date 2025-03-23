@@ -16,12 +16,6 @@ sqlite_nostd = { workspace = true }
 [dev-dependencies]
 rand = "0.8.5"
 
-[profile.dev]
-panic = "abort"
-
-[profile.release]
-panic = "abort"
-
 [features]
 loadable_extension = ["sqlite_nostd/loadable_extension"]
 static = ["sqlite_nostd/static"]

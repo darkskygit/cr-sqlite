@@ -6,6 +6,7 @@ authors = ["Matt Wonlaw", "DarkSky <darksky2048@gmail.com>"]
 description = "SQLite with CRDT support"
 
 [features]
+default = ["static"]
 test = ["crsql_core/test"]
 libsql = ["crsql_core/libsql"]
 loadable_extension = [

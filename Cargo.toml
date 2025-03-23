@@ -3,6 +3,7 @@ resolver = "2"
 members = [
   "packages/core",
   "packages/crsqlite",
+  "packages/example/sqlx",
   "packages/fractindex-core",
   "packages/integration_check",
 ]
